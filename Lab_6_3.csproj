@@ -7,8 +7,8 @@
     <ProjectGuid>{59957151-CF01-486D-B744-88798075A214}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lab_6_2</RootNamespace>
-    <AssemblyName>Lab_6_2</AssemblyName>
+    <RootNamespace>Lab_6_3</RootNamespace>
+    <AssemblyName>Lab_6_3</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Lab_6_2.addin" />
+    <None Include="Lab_6_3.addin" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainView.xaml">

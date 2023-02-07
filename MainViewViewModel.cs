@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_6_2
+namespace Lab_6_3
 {
     public class MainViewViewModel
     {
@@ -23,19 +23,22 @@ namespace Lab_6_2
         public FamilySymbol SelectedItem { get; set; }
         public List<Level> Levels { get; }
         public Level SelectedLevel { get; set; }
-        
+        public int Quantity { get; set; }
+        public XYZ Point1 { get; set; }
+        public XYZ Point2 { get; set; }
+
+
         public DelegateCommand SaveCommand { get; }
 
 
         public MainViewViewModel(ExternalCommandData commandData)
         {
             _commandData = commandData;
-            Furniture = FamilySymbolUtils.GetFurniture(commandData);
+            Furniture = FamilySymbolUtils.GetFamilySymbols(commandData);
             Levels = LevelsUtils.GetLevels(commandData);
-            
+            Point1 = SelectionUtils.GetPoint(commandData);
+            Point2 = SelectionUtils.GetPoint(commandData);
             SaveCommand = new DelegateCommand(OnSaveCommand);
-            
-           
         }
 
         private void OnSaveCommand()
@@ -48,8 +51,12 @@ namespace Lab_6_2
             {
                 return;
             }
-            RaiseHideRequest();
-            FamilyInstanceUtils.CreateFamilyInstance(_commandData, SelectedItem, SelectionUtils.GetPoint(_commandData), SelectedLevel);
+            XYZ stepPoint = (Point1 + Point2) / Quantity;
+            for (int i =0; i<Quantity; i++)
+            {
+                FamilyInstanceUtils.CreateFamilyInstance(_commandData, SelectedItem,(Point1+stepPoint*i), SelectedLevel);
+            }
+            
             RaiseCloseRequest();
         }
 

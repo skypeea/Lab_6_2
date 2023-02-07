@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_6_2
+namespace Lab_6_3
 {
     [Transaction(TransactionMode.Manual)]
     public class Main : IExternalCommand

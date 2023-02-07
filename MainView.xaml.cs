@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Lab_6_2
+namespace Lab_6_3
 {
     /// <summary>
     /// Interaction logic for MainView.xaml
