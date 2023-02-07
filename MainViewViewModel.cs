@@ -51,10 +51,12 @@ namespace Lab_6_3
             {
                 return;
             }
-            XYZ stepPoint = (Point1 + Point2) / Quantity;
+            XYZ direction = Point2 - Point1;
+            double step = direction.GetLength()/Quantity;
+            direction = direction.Normalize();
             for (int i =0; i<Quantity; i++)
             {
-                FamilyInstanceUtils.CreateFamilyInstance(_commandData, SelectedItem,(Point1+stepPoint*i), SelectedLevel);
+                FamilyInstanceUtils.CreateFamilyInstance(_commandData, SelectedItem,(Point1+direction*i*step+0.5*direction*step), SelectedLevel);
             }
             
             RaiseCloseRequest();
